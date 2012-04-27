@@ -13,8 +13,8 @@ int main(int argc, char *argv[])
 
     for(int nn=1; nn<argc; ++nn)
     {
-std::cerr << "Arg: " << argv[nn] << std::endl;
-args.push_back(argv[nn]);
+        std::cerr << "Arg: " << argv[nn] << std::endl;
+        args.push_back(argv[nn]);
     }
     args.push_back( NULL );
 
@@ -23,20 +23,20 @@ args.push_back(argv[nn]);
     string output;
 
     {
-Process myproc(args,true);
-    /* write/read test
-for(int n=0; n<5; ++n) {
-stringstream ss(line);
-ss << "This is test " << n << endl;
-line = ss.str();
-cerr << "calling write with line=" << line << "END" << endl;
-myproc.write(line);
-output = myproc.read();
-cerr << "output from process: " << output << "END" << endl;
-}
-*/
-sleep(5);
-cerr << "Process object destroyed" << endl;
+        Process myproc(args,true);
+        /* write/read test
+        for(int n=0; n<5; ++n) {
+        stringstream ss(line);
+        ss << "This is test " << n << endl;
+        line = ss.str();
+        cerr << "calling write with line=" << line << "END" << endl;
+        myproc.write(line);
+        output = myproc.read();
+        cerr << "output from process: " << output << "END" << endl;
+        }
+        */
+        sleep(5);
+        cerr << "Process object destroyed" << endl;
     }
 
     cerr << "Program exiting. Confirm child process has been cleaned up." << endl;
