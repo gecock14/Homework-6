@@ -1,0 +1,18 @@
+*Is this a good use of Object Oriented design? Why or why not?
+  This is a good use of Object Oriented design becasue the program is split up into individual functions, which all do a specific task.
+
+*There are different possible desired behaviors for what happens when the Process object goes out of scope:
+
+    -The Process object waits until the child process has finished on its own (this has the effect of stalling the main program at the point at which the process object goes out of scope).
+
+    -The Process object waits for a specified time period for the child to finish on its own and then sends a TERM or KILL signal.
+
+    -The Process object sends a TERM or KILL signal imediately if the child process has not already finished at the time the Process destructor is called (when the object goes out of scope)
+
+    ...
+
+*How might you modify your Process class to allow the programmer an easy way to use different destruction policies?
+  The user could be given the option through the command line arguments as to how they would like to use the destruction policies.
+
+*How might you handle the case when a child process terminates before the parent process destroies it? I.e. how might the parent be signaled when a child terminates, and then read in any data it has written to its output.
+  It may be possible to store the output of the child process to a global variable to allow the parent to read it after the child terminates. To signal the parent that the child terminated, you could keep checking the child process to see if its running and when its not a check variable gets tripped.
